@@ -16,5 +16,5 @@ collections:
           label: "images",
           name: "images",
           widget: "image",
-          allow_multiple: "true",
+          allow_multiple: true,
         }
