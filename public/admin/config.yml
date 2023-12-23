@@ -3,15 +3,23 @@ backend:
 media_folder: static/img
 public_folder: /img
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: "project"
+    label: "Project"
+    folder: "content/project"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    editor:
-      preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "images",
+          name: "images",
+          widget: "list",
+            fields:
+              - {label: Image, name: avatar, widget: image}
+              - {label: Width, name: width, widget: number, default: 50}
+              - {label: Height, name: height, widget: number}
+              - {label: "X Offset", name: xOffset, widget: number, default: 0}
+              - {label: "Y Offset", name: yOffset, widget: number, default: 0}
+        }
