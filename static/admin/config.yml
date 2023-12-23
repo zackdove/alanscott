@@ -15,6 +15,11 @@ collections:
       - {
           label: "images",
           name: "images",
-          widget: "image",
-          allow_multiple: true,
+          widget: "list",
+            fields:
+              - {label: Image, name: avatar, widget: image}
+              - {label: Width, name: width, widget: number, default: 50}
+              - {label: Height, name: height, widget: number}
+              - {label: "X Offset", name: xOffset, widget: number, default: 0}
+              - {label: "Y Offset", name: yOffset, widget: number, default: 0}
         }
