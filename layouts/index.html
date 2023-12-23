@@ -9,14 +9,10 @@
   </head>
   <body>
     <h1>Nice. It's looking good already.</h1>
-    <ul>
-      {{ range (where .Pages "Section" "project") }}
-      <li>
-        <a href="{{ .RelPermalink }}">
-          {{ .Title }}
-        </a>
-      </li>
+    <div>
+      {{ range first 5 .Site.RegularPages }}
+        {{ .Render "summary" }}
       {{ end }}
-    </ul>
+    </div>
   </body>
 </html>
