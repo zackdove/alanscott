@@ -11,6 +11,6 @@ images:
     yOffset: 20
 video:
   type: vimeo
-  position: top
+  position: bottom
   url: https://player.vimeo.com/video/735747111
 ---
