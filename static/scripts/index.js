@@ -1,6 +1,6 @@
-import * as THREE from 'three';
-import { PCDLoader } from 'three/addons/loaders/PCDLoader.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// import * as THREE from 'three';
+import { PCDLoader } from './PCDLoader.js';
+import { OrbitControls } from './OrbitControls.js';
 
 
 const scene = new THREE.Scene();
