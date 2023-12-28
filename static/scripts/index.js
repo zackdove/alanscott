@@ -53,7 +53,7 @@ loader.load(
         points.rotation.set(-0.35,0, 0);
 		points50k = points;
 		gsap.to(points.material, {
-			size: 0.5,
+			size: 0.05,
 			duration: 5,
 		})
 
