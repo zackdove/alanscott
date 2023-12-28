@@ -11,6 +11,19 @@ images:
     width: 50
     xOffset: 0
     yOffset: 75
+  - image: /img/mitski.jpg
+    width: 50
+    height: ""
+    xOffset: 50
+    yOffset: 40
+  - image: /img/bambii.jpg
+    width: 30
+    xOffset: -40
+    yOffset: 50
+  - image: /img/centralcee.jpg
+    width: 30
+    xOffset: 40
+    yOffset: 0
 video:
   type: vimeo
   position: bottom
