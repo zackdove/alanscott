@@ -54,6 +54,7 @@ loader.load(
 		points50k = points;
 		gsap.to(points.material, {
 			size: 0.05,
+			delay: 3,
 			duration: 5,
 		})
 
