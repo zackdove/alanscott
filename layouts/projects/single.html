@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{/*  <h1>{{ .Title }}</h1>
+Should not be in preview
+<p class="date">{{ .Date }}</p>
+<p class="description">{{ .Params.description }}</p>  */}}
+<section id="project-content">{{ .Render "content" }}</section>
+<section id="project-info">{{ .Render "info" }}</section>
+{{ end}}

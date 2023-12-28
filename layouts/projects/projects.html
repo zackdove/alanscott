@@ -1,0 +1,31 @@
+{{ define "main" }}
+<main class="pad-regular">
+  {{/*
+  <div id="projects-title">PROJECTS</div>
+  */}}
+
+  <table id="projects-table">
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Role</th>
+      <th></th>
+    </tr>
+    {{ range .Paginator.Pages }}
+
+    <tr>
+      <td><a href="{{.Permalink}}">{{ .Title }}</a></td>
+      {{ $t := time.AsTime .Params.date }}
+      <td>{{ time.Format "January 2006" $t }}</td>
+      
+      <td>Music Video</td>
+      <td>Set Design</td>
+      {{/*
+      <div>{{ .Description }}</div>
+      */}}
+    </tr>
+    {{ end }}
+  </table>
+</main>
+{{ end }}
