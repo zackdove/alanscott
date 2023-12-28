@@ -21,9 +21,10 @@ const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.inner
 
 const controls = new OrbitControls( camera, renderer.domElement );
 controls.autoRotate = true;
+controls.autoRotateSpeed = 1;
 
 //controls.update() must be called after any manual changes to the camera's transform
-camera.position.set( 0, 4, 10 );
+camera.position.set( 7, 4, 7 );
 controls.update();
 controls.enableDamping = true;
 

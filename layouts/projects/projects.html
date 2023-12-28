@@ -19,8 +19,17 @@
       {{ $t := time.AsTime .Params.date }}
       <td>{{ time.Format "January 2006" $t }}</td>
       
-      <td>Music Video</td>
-      <td>Set Design</td>
+      <td>{{.Params.category}}</td>
+      <td>{{.Params.role}}</td>
+      <td>
+      {{ range first 1 .Params.images}} 
+        <img
+          src="{{ .image }}"
+          width="512"
+          class="projects-hover-img"
+        />
+      {{ end }}
+    </td>
       {{/*
       <div>{{ .Description }}</div>
       */}}

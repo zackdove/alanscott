@@ -98,6 +98,7 @@ nav > div{
 #projects-table{
     padding-top: 50vh;
     width: 100%;
+    row-gap: 16px;
 }
 
 #projects-table a{
@@ -108,7 +109,21 @@ nav > div{
     text-align: left;
     font-size: 8px;
     opacity: 0.8;
+    padding-bottom: 10px;
 }
 #projects-table td{
-    font-size: 12px;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.projects-hover-img{
+    position: fixed;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+#projects-table tr:hover .projects-hover-img{
+    display: block;
 }
