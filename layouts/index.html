@@ -1,8 +1,12 @@
 {{ define "main" }}
 <main>
   <header>
-    <h1>{{ .Title }}</h1>
+
   </header>
-  <div>{{ range .Site.RegularPages }} {{ .Render "summary" }} {{ end }}</div>
+  {{/*  Project listing  */}}
+  {{/*  <div>{{ range .Site.RegularPages }} {{ .Render "summary" }} {{ end }}</div>  */}}
+  {{/*  End project listing  */}}
+  <section id="three-section"></section>
+  <script type="module" src="scripts/index.js"></script>
 </main>
 {{ end }}
