@@ -40,17 +40,22 @@ scene.add( hemLight );
 // instantiate a loader
 const loader = new PCDLoader();
 
+var points50k;
 // load a resource
 loader.load(
 	// resource URL
-	'threejs/models/colored-pointcloud-500k.pcd',
+	'threejs/models/colored-pointcloud-50k.pcd',
 	// called when the resource is loaded
 	function ( points ) {
-
+		points.material.size =0;
 		scene.add( points );
         points.position.set(0,0,1)
         points.rotation.set(-0.35,0, 0);
-        points.material.size = 0.05;
+		points50k = points;
+		gsap.to(points.material, {
+			size: 0.5,
+			duration: 5,
+		})
 
 	},
 	// called when loading is in progresses
@@ -66,6 +71,48 @@ loader.load(
 
 	}
 );
+
+// load a resource
+loader.load(
+	// resource URL
+	'threejs/models/colored-pointcloud-500k.pcd',
+	// called when the resource is loaded
+	function ( points ) {
+		points.material.size = 0;
+		scene.add( points );
+        points.position.set(0,0,1)
+        points.rotation.set(-0.35,0, 0);
+        // points.material.size = 0.05;
+		gsap.to(points.material, {
+			size: 0.05,
+			duration: 5,
+		})
+		if (points50k){
+			
+			gsap.to(points50k.material, {
+				size: 0.0,
+				duration: 5,
+				onComplete: () => {
+					points50k.removeFromParent()
+				}
+			})
+		}
+	},
+	// called when loading is in progresses
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+);
+
+window.scene = scene;
 
 
 function animate() {
