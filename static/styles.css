@@ -1,3 +1,30 @@
 body{
-    background-color: yellow;
+    background-color: black;
+    font-family: "Helvetica Neue";
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    margin: 0;
+}
+
+#project-info{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#project-info > div{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#content-images {
+    position: relative;
 }

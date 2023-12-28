@@ -10,5 +10,24 @@
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      CMS.registerPreviewStyle("/example.css");
+
+      var ProjectPreview = createClass({
+        render: function () {
+          var entry = this.props.entry;
+          return h(
+            "div",
+            {},
+            h("h1", {}, entry.getIn(["data", "title"])),
+            h("h2", {}, "Only in preview"),
+            h("img", { src: bg.toString(), width: 20 }),
+            h("div", { className: "text" }, this.props.widgetFor("body"))
+          );
+        },
+      });
+
+      CMS.registerPreviewTemplate("project", ProjectPreview);
+    </script>
   </body>
 </html>

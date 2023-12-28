@@ -1,0 +1,68 @@
+<div>
+  {{ $curY := 0 }} {{ $curX := 0 }} {{ if and (isset .Params.video "url") (eq
+  .Params.video.position "top") }}
+  <iframe
+    src="https://player.vimeo.com/video/735747111"
+    style="
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100vw * 0.563);
+      pointer-events: all;
+    "
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+  {{ end}}
+
+  {{/*  Calculate height  */}}
+  {{ $tHeight := 0 }}
+  {{ $lastHeight := 0 }}
+  {{ range .Params.images}}
+    {{ $image := images.Config (printf "%s%s" "static/" .image) }}
+    {{ $displayWidth := .width }}
+    {{ with $image }}
+        {{ $lastHeight = mul (div (float $image.Height) $image.Width) $displayWidth}}
+    {{ end }}
+    {{/*  <div> {{$image}}</div>  */}}
+    {{ if isset . "yOffset" }}
+        {{ $tHeight = add $tHeight .yOffset}}
+    {{ end }}
+  {{ end }}
+  {{ $tHeight = add $tHeight $lastHeight}}
+
+  <div id="content-images" style="height: {{ $tHeight }}vw;">
+    {{ range .Params.images}} {{ if isset . "yOffset" }} {{ $curY = add $curY
+    .yOffset}} {{ end }} {{ if isset . "xOffset" }} {{ $curX = add $curX
+    .xOffset}} {{ end }}
+    <img
+      src="{{ .image }}"
+      width="512"
+      style="
+                width: {{ .width }}vw;
+                top: {{ $curY }}vw;
+                left: {{ $curX}}vw;
+                position: absolute;
+            "
+    />
+    {{ end }}
+  </div>
+
+  {{ if and (isset .Params.video "url") (eq .Params.video.position "bottom") }}
+  <iframe
+    src="https://player.vimeo.com/video/735747111"
+    style="
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-bottom: 100px;
+      height: calc(100vw * 0.563);
+      pointer-events: all;
+    "
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+  {{ end}}
+</div>
