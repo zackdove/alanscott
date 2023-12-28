@@ -6,11 +6,12 @@ images:
   - image: /img/issue-143-earheater-landscape-gallery-2.jpg
     width: 100
   - image: /img/salamanda-parallax.jpg
-    width: 20
-    xOffset: 20
-    yOffset: 20
+    width: 50
+    xOffset: 0
+    yOffset: 75
 video:
   type: vimeo
   position: bottom
   url: https://player.vimeo.com/video/735747111
+  padding: 10
 ---
