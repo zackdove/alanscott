@@ -1,6 +1,13 @@
 {{ define "main" }}
 <main id="contact">
+  <div>{{.Page.Params.address}}</div>
 
-    {{.Page.Params}}
-    </main>
+  <div>
+    {{range .Page.Params.links}}
+    <div>
+      <a href="{{.url}}">{{.label}}</a>
+    </div>
     {{end}}
+  </div>
+</main>
+{{end}}

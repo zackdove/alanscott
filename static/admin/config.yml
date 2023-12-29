@@ -77,6 +77,7 @@ collections:
         name: "showreel"
         file: "content/showreel.md"
         fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "showreel"}
           - label: "Video"
             name: "video"
             widget: "object"
@@ -107,7 +108,12 @@ collections:
         name: "contact"
         file: "content/contact.md"
         fields:
-          - { label: "Link", name: "link", widget: "string" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "contact" }
+          - label: "Address"
+            name: "address"
+            widget: "list"
+            fields:
+              - { label: "Address Line", name: line, widget: string}
           - label: "Links"
             name: "links"
             widget: "list"
