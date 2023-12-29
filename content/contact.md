@@ -1,4 +1,5 @@
 ---
+layout: contact
 address:
   - line: Unit 4,
   - line: Some Road,
