@@ -1,5 +1,5 @@
 ---
-link: https://www.instagram.com/alanscottyz/
+layout: "contact"
 address: |-
   Number 4,
   Some Road,
