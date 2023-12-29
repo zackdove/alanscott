@@ -127,3 +127,41 @@ nav > div{
 #projects-table tr:hover .projects-hover-img{
     display: block;
 }
+
+.projects-open-cta{
+    opacity: 0.7;
+}
+
+@media (max-width: 700px) {
+    #projects-table tr td{
+        display: none;
+    }
+    #projects-table tr td:nth-child(1){
+        display: block;
+    }
+    #projects-table tr th{
+        display: none;
+    }
+    #projects-table tr th:nth-child(1){
+        display: block;
+    }
+}
+
+#projects-table tr{
+    cursor: default;
+}
+
+#projects-table tr.cursor-pointer{
+    cursor: pointer;
+}
+
+#showreel{
+    width: 100vw;
+    top: 50vh;
+    transform: translateY(-50%);
+    position: fixed;
+}
+
+#contact{
+    padding-top: 100px;
+}

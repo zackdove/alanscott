@@ -14,6 +14,7 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Category", name: "category", widget: "string" }
       - { label: "Role", name: "role", widget: "string" }
+      - { label: "Has Full Page?", name: "hasfullpage", widget: "boolean" }
       - label: "Images"
         name: "images"
         widget: "list"
@@ -69,3 +70,47 @@ collections:
             widget: number
             default: 10
             required: false
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Showreel Page"
+        name: "showreel"
+        file: "content/showreel.md"
+        fields:
+          - label: "Video"
+            name: "video"
+            widget: "object"
+            required: false
+            fields:
+              - label: "Source Type"
+                name: "type"
+                widget: "select"
+                hint: "Vimeo, YouTube or Self-Hosted."
+                default: "vimeo"
+                options: ["vimeo", "youtube", "self-host"]
+              - {
+                  label: "Source URL",
+                  name: "url",
+                  widget: "string",
+                  required: false,
+                  hint: "Vimeo or YouTube URL. Vimeo is preferred.",
+                }
+              - label: "File"
+                name: "file"
+                widget: "file"
+                required: false
+                hint: "Only needed for self-host option"
+                media-library:
+                  config:
+                    multiple: false
+      - label: "Contact Page"
+        name: "contact"
+        file: "content/contact.md"
+        fields:
+          - { label: "Link", name: "link", widget: "string" }
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Label", name: label, widget: string}
+              - { label: "URL", name: url, widget: string }

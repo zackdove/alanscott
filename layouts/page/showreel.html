@@ -1,0 +1,18 @@
+{{ define "main" }}
+<main id="showreel">
+
+    <iframe
+    src="{{.Page.Params.video.url}}"
+    style="
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100vw * 0.563);
+      pointer-events: all;
+    "
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+    </main>
+    {{end}}

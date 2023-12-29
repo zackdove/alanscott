@@ -4,6 +4,7 @@ date: 2023-12-28T16:29:14.480Z
 description: MUSIC VIDEO FOR SHYGIRL THICC
 category: MUSIC VIDEO
 role: ART DIRECTOR
+hasfullpage: false
 images:
   - image: /img/tirzah.jpg
     width: 50

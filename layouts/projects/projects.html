@@ -6,21 +6,27 @@
 
   <table id="projects-table">
     <tr>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Category</th>
-      <th>Role</th>
-      <th></th>
+      <th class="projects-title">Project</th>
+      <th class="projects-date">Date</th>
+      <th class="projects-category">Category</th>
+      <th class="projects-role">Role</th>
     </tr>
     {{ range .Paginator.Pages }}
 
-    <tr>
-      <td><a href="{{.Permalink}}">{{ .Title }}</a></td>
+    <tr class="{{ if .Params.hasfullpage }}cursor-pointer{{end}}">
+      <td class="projects-title"><a  {{ if .Params.hasfullpage }}href="{{.Permalink}}"{{end}}>
+        {{ .Title }}
+        {{ if .Params.hasfullpage }}
+          <span class="projects-open-cta">
+            - OPEN PAGE
+          </span>
+        {{end}}
+      </a></td>
       {{ $t := time.AsTime .Params.date }}
-      <td>{{ time.Format "January 2006" $t }}</td>
+      <td class="projects-date">{{ time.Format "January 2006" $t }}</td>
       
-      <td>{{.Params.category}}</td>
-      <td>{{.Params.role}}</td>
+      <td class="projects-category">{{.Params.category}}</td>
+      <td class="projects-role">{{.Params.role}}</td>
       <td>
       {{ range first 1 .Params.images}} 
         <img
@@ -37,4 +43,23 @@
     {{ end }}
   </table>
 </main>
+
+<script>
+  console.log('hello')
+  const table = document.getElementById('projects-table');
+  const rows = table.querySelectorAll('tr');
+  for (let i = 0; i < rows.length; i++){
+    const row = rows[i];
+    const a = row.querySelector('a'); 
+    if (a && a.href){
+      console.log(a.href)
+      row.onclick = () => {
+        window.open(a.href)
+      }
+    }
+   
+  }
+</script>
+
 {{ end }}
+

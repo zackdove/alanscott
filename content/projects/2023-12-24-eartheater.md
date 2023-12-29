@@ -6,6 +6,7 @@ description: Dr Jonathon Crewe is an award winning writer and director for film,
   representation
 category: Live Performance
 role: Art Direction
+hasfullpage: true
 images:
   - image: /img/issue-143-earheater-landscape-gallery-2.jpg
     width: 100
