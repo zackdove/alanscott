@@ -12,4 +12,5 @@ links:
     url: https://www.instagram.com/alanscottyz/
   - label: Behance
     url: https://www.instagram.com/alanscottyz/
+email: alanscottyz@gmail.com
 ---

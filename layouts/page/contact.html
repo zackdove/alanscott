@@ -1,13 +1,31 @@
 {{ define "main" }}
 <main id="contact">
-  <div>{{.Page.Params.address}}</div>
-
+  <div id="contact-grid">
+  {{/*  <div>{{.Page.Params.address}}</div>  */}}
   <div>
+    <h5>Studio</h5>
+    {{range .Page.Params.address}}
+    <div>
+      {{.line}}
+    </div>
+    {{end}}
+  </div>
+  <div>
+    <h5>Socials</h5>
     {{range .Page.Params.links}}
     <div>
       <a href="{{.url}}">{{.label}}</a>
     </div>
     {{end}}
   </div>
+  <div class="double-col">
+    <h5>Email</h5>
+    <div>
+      <a href="mailto:{{.Page.Params.email}}">
+      {{.Page.Params.email}}
+    </a>
+    </div>
+  </div>
+</div>
 </main>
 {{end}}
