@@ -53,3 +53,14 @@ function animate() {
   renderer.render(scene, camera);
 }
 animate();
+
+// Sophie's stuff below
+
+const projects = window.projects;
+console.log(projects);
+
+for (let i = 0; i < projects.length; i++) {
+  console.log(projects[i].title);
+  //   const t = new Text(projects[i].title);
+  //   scene.add(t);
+}

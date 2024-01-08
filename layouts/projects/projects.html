@@ -40,7 +40,7 @@
 
   <div
     id="projects-threejs-container"
-    style="position: fixed; top: 0; left: 0; z-index: 10"
+    style="position: fixed; top: 0; left: 0; z-index: 10; height: 100vh"
   ></div>
 </main>
 
@@ -79,7 +79,8 @@
     )
   {{ end }}
 
-  console.log(projects)
+
+  window.projects = projects
 </script>
 
 <script type="module" src="/scripts/projects.js"></script>
