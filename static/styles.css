@@ -194,3 +194,13 @@ a:hover{
 .double-col{
     grid-column-end: span 2;
 }
+/* hello */
+
+#projects-threejs-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
