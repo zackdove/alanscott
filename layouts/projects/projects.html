@@ -14,28 +14,23 @@
     {{ range .Paginator.Pages }}
 
     <tr class="{{ if .Params.hasfullpage }}cursor-pointer{{end}}">
-      <td class="projects-title"><a  {{ if .Params.hasfullpage }}href="{{.Permalink}}"{{end}}>
-        {{ .Title }}
-        {{ if .Params.hasfullpage }}
-          <span class="projects-open-cta">
-            - OPEN PAGE
-          </span>
-        {{end}}
-      </a></td>
+      <td class="projects-title">
+        <a {{ if .Params.hasfullpage }}href="{{.Permalink}}" {{end}}>
+          {{ .Title }} {{ if .Params.hasfullpage }}
+          <span class="projects-open-cta"> - OPEN PAGE </span>
+          {{end}}
+        </a>
+      </td>
       {{ $t := time.AsTime .Params.date }}
       <td class="projects-date">{{ time.Format "January 2006" $t }}</td>
-      
+
       <td class="projects-category">{{.Params.category}}</td>
       <td class="projects-role">{{.Params.role}}</td>
       <td>
-      {{ range first 1 .Params.images}} 
-        <img
-          src="{{ .image }}"
-          width="512"
-          class="projects-hover-img"
-        />
-      {{ end }}
-    </td>
+        {{ range first 1 .Params.images}}
+        <img src="{{ .image }}" width="512" class="projects-hover-img" />
+        {{ end }}
+      </td>
       {{/*
       <div>{{ .Description }}</div>
       */}}
@@ -50,16 +45,36 @@
   const rows = table.querySelectorAll('tr');
   for (let i = 0; i < rows.length; i++){
     const row = rows[i];
-    const a = row.querySelector('a'); 
+    const a = row.querySelector('a');
     if (a && a.href){
       console.log(a.href)
       row.onclick = () => {
         window.open(a.href)
       }
     }
-   
+
   }
+
+  const projects = [];
+
+  {{ range .Paginator.Pages }}
+
+    projects.push(
+      {
+        title: {{.Title}},
+        hasFullPage: {{ .Params.hasfullpage }},
+        {{ $t := time.AsTime .Params.date }}
+        date: {{ $t }},
+        category: {{ .Params.category }},
+        role: {{ .Params.role }},
+        {{ range first 1 .Params.images}}
+        imageUrl: {{ .image }},
+        {{ end }}
+      }
+    )
+  {{ end }}
+
+  console.log(projects)
 </script>
 
 {{ end }}
-
