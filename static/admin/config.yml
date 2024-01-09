@@ -77,7 +77,12 @@ collections:
         name: "showreel"
         file: "content/showreel.md"
         fields:
-          - { label: "Layout", name: "layout", widget: "string", default: "showreel"}
+          - {
+              label: "Layout",
+              name: "layout",
+              widget: "string",
+              default: "showreel",
+            }
           - label: "Video"
             name: "video"
             widget: "object"
@@ -108,16 +113,42 @@ collections:
         name: "contact"
         file: "content/contact.md"
         fields:
-          - { label: "Layout", name: "layout", widget: "string", default: "contact" }
-          - { label: "Email", name: "email", widget: "string", default: "email"}
+          - {
+              label: "Layout",
+              name: "layout",
+              widget: "string",
+              default: "contact",
+            }
+          - {
+              label: "Email",
+              name: "email",
+              widget: "string",
+              default: "email",
+            }
           - label: "Address"
             name: "address"
             widget: "list"
             fields:
-              - { label: "Address Line", name: line, widget: string}
+              - { label: "Address Line", name: line, widget: string }
           - label: "Links"
             name: "links"
             widget: "list"
             fields:
-              - { label: "Label", name: label, widget: string}
+              - { label: "Label", name: label, widget: string }
               - { label: "URL", name: url, widget: string }
+      - label: "About Page"
+        name: "about"
+        file: "content/about.md"
+        fields:
+          - {
+              label: "Layout",
+              name: "layout",
+              widget: "string",
+              default: "contact",
+            }
+          - { label: "Bio", name: "bio", widget: "string" }
+          - label: "Clients"
+            name: "clients"
+            widget: "list"
+            fields:
+              - { label: "Client", name: client, widget: string }

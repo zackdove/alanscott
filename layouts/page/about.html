@@ -1,0 +1,19 @@
+{{ define "main" }}
+<main id="contact">
+  <div id="contact-grid">
+    {{/*
+    <div>{{.Page.Params.address}}</div>
+    */}}
+    <div>
+      <h5>Clients</h5>
+      {{range .Page.Params.clients}}
+      <div>{{.client}}</div>
+      {{end}}
+    </div>
+    <div>
+      <h5>Bio</h5>
+      <div>{{ .Page.Params.bio}}</div>
+    </div>
+  </div>
+</main>
+{{end}}
