@@ -3,9 +3,27 @@
     <a href="/"><div>ALAN SCOTT</div></a>
   </div>
   <div>
-    <a href="/projects" class="{{ if eq .Page.RelPermalink "/projects/" }}current{{end}}"><div>PROJECTS</div></a>
-    <a href="/showreel" class="{{ if eq .Page.RelPermalink "/showreel/" }}current{{end}}"><div>SHOWREEL</div></a>
-    <a href="/contact" class="{{ if eq .Page.RelPermalink "/contact/" }}current{{end}}"><div>CONTACT</div></a>
-    <a href="/about" class="{{ if eq .Page.RelPermalink "/about/" }}current{{end}}"><div>ABOUT</div></a>
+    {{ $currentPage := .Page.RelPermalink }}
+
+    {{/*  Projects  */}}
+    <a href="/projects" class="{{ if eq $currentPage "/projects/" }}current{{end}}"><div>PROJECTS</div></a>
+
+    {{/*  About  */}}
+    {{ range (where .Site.RegularPages "Params.layout" "about") }}
+      {{ if .Page.Params.showInNav }}
+      <a href="/about" class="{{ if eq $currentPage "/about/" }}current{{end}}"><div>ABOUT</div></a>
+      {{ end }}
+    {{ end }}
+
+    {{/*  Showreel  */}}
+    {{ range (where .Site.RegularPages "Params.layout" "showreel") }}
+      {{ if .Page.Params.showInNav }}
+      <a href="/showreel" class="{{ if eq $currentPage "/showreel/" }}current{{end}}"><div>SHOWREEL</div></a>
+      {{ end }}
+    {{ end }}
+
+    {{/*  Contact  */}}
+    <a href="/contact" class="{{ if eq $currentPage "/contact/" }}current{{end}}"><div>CONTACT</div></a>
+     
   </div>
 </nav>
