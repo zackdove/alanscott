@@ -5,6 +5,7 @@ description: Dr Jonathon Crewe is an award winning writer and director for film,
   theatre and radio, whose work predominantly investigates forms of
   representation
 category: Live Performance
+client: Studio
 role: Art Direction
 hasfullpage: true
 images:
