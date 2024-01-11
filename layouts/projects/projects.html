@@ -49,8 +49,14 @@
     const a = row.querySelector("a");
     if (a && a.href) {
       console.log(a.href);
-      row.onclick = () => {
-        window.open(a.href);
+      row.onclick = (e) => {
+        e.preventDefault();
+        {
+          {
+            /*  window.open(a.href);  */
+          }
+        }
+        window.location.href = a.href;
       };
     }
   }

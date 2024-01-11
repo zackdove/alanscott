@@ -1,27 +1,72 @@
-<div>
+<div id="project-info-mobile-button" onclick="handleProjectDetailsClick()">
+  Project Details
+  <span id="project-info-mobile-button-plus"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="0.8em"
+      height="0.8em"
+      stroke="white"
+      fill="currentColor"
+      fill-rule="evenodd"
+      viewBox="0 0 24 24"
+    >
+      <path stroke-width="3" d="M11 2v9H2v2h9v9h2v-9h9v-2h-9V2Z"></path>
+    </svg>
+  </span>
+</div>
+<div id="project-info-main">
   <div>
-    <h5>Project</h5>
-    <div>{{ .Params.title }}</div>
-  </div>
-
-  <div>
-    <h5>Date</h5>
     <div>
-      {{ $t := time.AsTime .Params.date }} {{ time.Format "January 2006" $t }}
+      <h5>Project</h5>
+      <div>{{ .Params.title }}</div>
+    </div>
+
+    <div>
+      <h5>Date</h5>
+      <div>
+        {{ $t := time.AsTime .Params.date }} {{ time.Format "January 2006" $t }}
+      </div>
+    </div>
+
+    <div>
+      <h5>Role</h5>
+      <div>
+        <div>{{ .Params.role }}</div>
+      </div>
     </div>
   </div>
 
   <div>
-    <h5>Role</h5>
     <div>
-      <div>{{ .Params.role }}</div>
+      <h5>INFO</h5>
+      <div id="project-description">{{ .Params.description }}</div>
     </div>
   </div>
 </div>
 
-<div>
-  <div>
-    <h5>INFO</h5>
-    <div id="project-description">{{ .Params.description }}</div>
-  </div>
-</div>
+<script>
+  let isActive = false;
+  const projectInfoMain = document.getElementById("project-info-main");
+  const projectInfoMobileButton = document.getElementById(
+    "project-info-mobile-button"
+  );
+  const projectInfoMobileButtonPlus = document.querySelector(
+    "#project-info-mobile-button-plus > svg"
+  );
+  function handleProjectDetailsClick() {
+    console.log("handleProjectDetailsClick");
+
+    isActive = !isActive;
+    if (isActive) {
+      projectInfoMain.style.transform = `translateY(-${
+        projectInfoMain.getBoundingClientRect().height +
+        projectInfoMobileButton.getBoundingClientRect().height -
+        10
+      }px)`;
+      projectInfoMobileButtonPlus.style.transform = "rotate(135deg)";
+    } else {
+      projectInfoMain.style.transform = `translateY(-0px)`;
+      projectInfoMobileButtonPlus.style.transform = "rotate(0deg)";
+    }
+  }
+</script>

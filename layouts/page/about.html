@@ -11,9 +11,11 @@
     </div>
     <div>
       <h5>Clients</h5>
-      {{range .Page.Params.clients}}
-      <div>{{.client}}</div>
-      {{end}}
+      <div>
+        {{range .Page.Params.clients}}
+        <div>{{.client}}</div>
+        {{end}}
+      </div>
     </div>
   </div>
 </main>

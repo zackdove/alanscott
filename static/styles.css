@@ -25,6 +25,10 @@ body{
     bottom: 0;
     left: 0;
     width: 100%;
+   
+}
+
+#project-info-main{
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -33,20 +37,60 @@ body{
     font-size: 14px;
 }
 
-#project-info h5{
-    font-size: 8px;
-}
-
-#project-info > div{
+#project-info-main > div{
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 85px;
 }
 
+#project-info h5{
+    font-size: 8px;
+}
+
 #project-description{
     width: 32em;
 }
+
+#project-info-mobile-button{
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    #project-info{
+        background-color: #000;
+    }
+    #project-info-main{
+        position: absolute;
+        z-index: -1;
+        background-color: #000;
+        transition: transform 0.3s;
+        flex-direction: column;
+        width: 100vw;
+    }
+    #project-info-main > div{
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    #project-info-mobile-button{
+        display: block;
+        text-align: center;
+        padding: 14px 0;
+        background-color: black;
+    }
+    #project-info-mobile-button-plus{
+        padding-left: 1em;
+    }
+    #project-info-mobile-button-plus > svg{
+        transition: transform 0.3s;
+    }
+    #project-description{
+        width: auto;
+        padding-bottom: 8px;
+    }
+}
+
+
 
 #project-title{
     width: 16em;
