@@ -26,9 +26,10 @@
 
       <td class="projects-category">{{.Params.category}}</td>
       <td class="projects-client">{{.Params.client}}</td>
-      <td>
-        {{ range first 1 .Params.images}}
-        <img src="{{ .image }}" width="512" class="projects-hover-img" />
+      <td class="projects-images">
+        {{ $imgCount := math.Min 5 (len .Params.images) }} {{ range first
+        $imgCount .Params.images}}
+        <img src="{{ .image }}" width="300" class="projects-hover-img" />
         {{ end }}
       </td>
       {{/*
@@ -53,6 +54,56 @@
       };
     }
   }
+
+  const handleImages = () => {
+    const containers = document.querySelectorAll(".projects-images");
+    for (let i = 0; i < containers.length; i++) {
+      var positions = [];
+      const images = containers[i].children;
+      for (let j = 0; j < images.length; j++) {
+        var coords = {
+          w: 300,
+          h: 250,
+        };
+        var success = false;
+        let count = 0;
+        if (images.length > 3 && j > images.length - 2) {
+          success = true;
+          images[j].remove();
+        }
+        while (!success) {
+          console.log(this);
+          coords.x = parseInt(Math.random() * (window.innerWidth - coords.w));
+          coords.y = parseInt(Math.random() * (window.innerHeight - coords.h));
+          var success = true;
+          positions.forEach((p) => {
+            if (
+              coords.x <= p.x + p.w &&
+              coords.x + coords.w >= p.x &&
+              coords.y <= p.y + p.h &&
+              coords.y + coords.h >= p.y
+            ) {
+              success = false;
+            }
+          });
+          count++;
+          if (count === 100 || count === 2000 || count === 3000) {
+            this.w *= 0.9;
+            this.h *= 0.9;
+          }
+          if (count > 4000) {
+            success = true;
+            images[j].remove();
+          }
+        }
+        positions.push(coords);
+        if (images[j])
+          images[j].style = `top: ${coords.y}px; left: ${coords.x}px;`;
+      }
+    }
+  };
+
+  handleImages();
 </script>
 
 {{ end }}
