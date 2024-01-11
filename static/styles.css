@@ -1,6 +1,18 @@
+@font-face {
+    font-family: "DrukWide-Bold";
+    src:
+      url("/fonts/Druk_Collection/Druk Wide Family/DrukWide-Bold-Trial.otf") format("opentype"),
+  }
+
+  @font-face {
+    font-family: "DrukTextWide-Medium";
+    src:
+      url("/fonts/Druk_Collection/Druk Text Wide Family/DrukTextWide-Medium-Trial.otf") format("opentype"),
+  }
+
 body{
     background-color: black;
-    font-family: "Helvetica Neue";
+    font-family: "DrukTextWide-Medium";
     text-transform: uppercase;
     color: white;
     font-weight: 700;
@@ -193,4 +205,26 @@ a:hover{
 }
 .double-col{
     grid-column-end: span 2;
+}
+
+#about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+}
+
+#about-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    width: 400px;
+    margin-left: 100px;
+    margin: auto;
+    font-size: 14px;
+}
+#about h5{
+    font-size: 8px;
+    opacity: 0.8;
 }
